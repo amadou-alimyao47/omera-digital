@@ -1,0 +1,15 @@
+<div class="card col-md-4">
+  <img src="/uploads/img/article/{{article.pictures.first.url}}" alt="" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title text-primary">
+      <a href="{{ path('blog_show', {id: article.id, slug: article.slug}) }}">
+          {{ article.title }}
+      </a>
+    </h5>
+
+    <p class="text text-muted text-center">{{ article.extract|nl2br }}</p>
+    <p class="text-center">
+      <a href="{{ path('blog_show', {id: article.id, slug: article.slug}) }}" class=" text-danger">read more > </a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Omera Digital Blog{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      {% for article in articles %}
+            {% include 'blog/_card.html.twig' with {article: article} only %}
+      {% endfor %}
+    </div>
+    
+    {% if previous >= 0 %}
+         <a href="{{ path('blog_index', {p: previous, category: category, q: q }) }}" class="btn btn-primary" >Prev</a>
+      {% endif %}
+     {% if next < articles|length %}
+          <a href="{{ path('blog_index', {p: next, category: category, q: q }) }}" class="btn btn-primary" >Next</a>
+     {% endif %}
+  </div>
+{% endblock %}

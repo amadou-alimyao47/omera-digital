@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Omear Digital: Team{% endblock %}
+
+{% block body %}
+  <div class="row">
+    {% for member in team %}
+        <div class="col-md-3 text-center">
+          <img src="/uploads/img/contributor/{{ member.photo }}" alt="Member Image" class="img-fuild" width="300px"><br>
+          <strong>{{ member.fullname }}</strong><br>
+          <p>{{ member.profession }}</p>
+          <p>{{ member.description|nl2br }}</p>
+        </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

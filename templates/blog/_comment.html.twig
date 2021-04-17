@@ -1,0 +1,10 @@
+<div class="row m-2">
+  <div class="col-md-2">
+    <img src="/uploads/img/user/{{comment.author.photo}}" alt="" class="img-fuild" width="100px" style="border-radius: 30px">
+  </div>
+  <div class="col-md-10">
+    <h5>{{ comment.author.fullname }} {{ comment.createdAt|date("M d, Y")}}</h5>
+    <p>{{ comment.content|nl2br }}</p>
+  </div>
+  <hr>
+</div>

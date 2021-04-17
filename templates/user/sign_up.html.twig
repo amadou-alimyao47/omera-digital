@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block body %}
+  {{ form_start(form) }}
+    {{ form_row(form.fullname, {attr: {placeholder: 'Your Name'}})}}
+    {{ form_row(form.email)}}
+    {{ form_row(form.password)}}
+    {{ form_row(form.passwordRepeat)}}
+    <button type="submit" name="button" class="btn btn-danger">SIGN UP</button>
+  {{ form_end(form) }}
+{% endblock %}

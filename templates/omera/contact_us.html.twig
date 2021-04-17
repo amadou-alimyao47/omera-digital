@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}Contact us{% endblock %}
+
+{% block body %}
+<div class="">
+  {% include 'inc/_flash_info.html.twig'%}
+</div>
+  {{ form_start(form) }}
+    {{ form_row(form.customer)}}
+    {{ form_row(form.email)}}
+    {{ form_row(form.subject)}}
+    {{ form_row(form.budget)}}
+    {{ form_row(form.challenge)}}
+    <button type="submit" name="button" class="btn btn-danger">SEND</button>
+  {{ form_end(form) }}
+{% endblock %}

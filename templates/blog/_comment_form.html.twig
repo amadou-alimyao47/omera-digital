@@ -1,0 +1,10 @@
+<div class="">
+  <h2>Leave a Reply</h2>
+  <p>Your email address will not be published. Required fields are marked </p>
+  <div class="">
+    {{ form_start(form) }}
+      {{ form_row(form.content)}}
+      <button type="submit" name="button" class="btn btn-danger">POST COMMENT</button>
+    {{ form_end(form) }}
+  </div>
+</div>

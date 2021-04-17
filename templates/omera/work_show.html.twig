@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Omera Digital work: {{ work.subject }}{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="h4">Challenge</h3>
+      <p class="text-center">{{ work.challenge }}</p>
+    </div>
+    <div class="col-md-4">
+      <h3 class="h4">Solution</h3>
+      <p class="text-center">{{ work.solution }}</p>
+    </div>
+    <div class="col-md-4 jumbotron">
+      <p>Client: {{ work.customer }}</p>
+      <p>Budget: {{ work.budget|number_format(0, ' ', ' ') }} FCFA</p>
+      <p>Categories: {{ work.getCategoriesNames }}</p>
+      <p>Date: {{ work.createdAt|date('Y-m-d') }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <img src="/uploads/img/project/{{ work.images.first.url }}" alt="" class="img-fluid" height="300px">
+  </div>
+  <div class="row">
+    <div class="col-md-6 bg-danger">
+      <h4 class="h4 text-white">Landing Page Deisgn</h4>
+      <p class="text-center">
+        This communication platform makes it easy to share updates from any classroom around the world, empowering teachers, parents and students to connect and learn. Having reached more than 180 countries, it's clearly working.To maintain growth however, the company had to ensure its app was best-in-class with a growing community.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="/uploads/img/project/{{ work.images.first.url }}" alt="" class="img-fuild" height="300px" width="400px">
+    </div>
+  </div>
+{% endblock %}

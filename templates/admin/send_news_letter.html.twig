@@ -1,0 +1,13 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Omera Digital Envoyer une NewsLetter{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+      {{ form_row(form.subject) }}
+      {{ form_row(form.content) }}
+      <button type="submit" name="button" class="btn btn-danger">
+        ENVOYER
+      </button>
+    {{ form_end(form) }}
+{% endblock %}

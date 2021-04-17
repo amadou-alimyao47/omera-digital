@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title %}Omera Digital : {{article.title}}{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-8">
+      <div class="">
+        <img src="/uploads/img/article/{{article.pictures.first.url}}" alt="Image post" class="card-fuild" width="700px"><br>
+        <span>{{article.createdAt|date("M d, Y")}}</span>
+      </div>
+      {% for author in article.authors %}
+        <div class="">
+          <img src="/uploads/img/contributor/{{author.photo}}" alt="auteur" width="50px" style="border-radius: 25px">
+          <span> BY {{author.fullname}} <a href="#">{{author.email}}</a> </span>
+          <hr>
+        </div>
+      {% endfor %}
+      <div class="">
+        <h3 class="h3">{{ article.title }}</h3>
+        <div class="">
+          {{ article.content|nl2br}}
+        </div>
+      </div>
+      <div class="">
+        <h4>Comments</h4>
+        {% for comment in comments %}
+            {% include 'blog/_comment.html.twig' with {comment: comment} only %}
+        {% endfor %}
+      </div>
+      {% if previous >= 0 %}
+           <a href="{{ path('blog_show', {id: article.id , slug: article.slug, p: previous }) }}" class="btn btn-primary" >Prev</a>
+        {% endif %}
+       {% if next < comments|length %}
+            <a href="{{ path('blog_show', {id: article.id, slug: article.slug, p: next }) }}" class="btn btn-primary" >Next</a>
+       {% endif %}
+      {% if app.user %}
+        {% include 'blog/_comment_form.html.twig' with {form: form} only %}
+      {% else %}
+            <a href="{{ path('app_login') }}" class="btn btn-danger">ADD COMMENT</a>
+      {% endif %}
+
+    </div>
+    <div class="col-md-4">
+      {% include 'blog/_sidebar.html.twig' with {search: search, articles: lastedArticles, categories: categories} only %}
+    </div>
+  </div>
+{% endblock %}

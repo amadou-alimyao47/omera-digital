@@ -1,0 +1,7 @@
+<div>
+  <img src="{{ '/uploads/img/contributor/' ~ contributor }}" alt="Photo de profile" width="150">
+    <a href="{{ path('admin_article_picture_delete', {id: contributor.id, tk: csrf_token('art_del_img' ~ contributor.id) }) }}"
+     onclick="return confirm('Are you sure you want to delete this article ?')">
+     Supprimer
+   </a>
+</div>

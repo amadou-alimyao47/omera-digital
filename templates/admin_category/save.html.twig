@@ -1,0 +1,7 @@
+{% extends "base_admin.html.twig" %}
+{% block body %}
+	{{ form_start(form) }}
+		{{ form_row(form.name, {attr: {placeholder: 'nom de la categorie'}}) }}
+		<button type="submit" class="btn btn-primary">sauver</button>
+	{{ form_end(form) }}
+{% endblock %}

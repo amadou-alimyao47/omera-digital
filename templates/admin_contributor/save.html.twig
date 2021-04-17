@@ -1,0 +1,19 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+  {{ form_start(form) }}
+      {{ form_row(form.fullname, {label: false, attr: {placeholder: 'Nom & Prenom'}})}}
+      {{ form_row(form.email, {label: false, attr: {placeholder: 'Addrese mail'}})}}
+      {{ form_row(form.profession, {label: false, attr: {placeholder: 'Profession'}})}}
+      {% if not contributor.id %}
+        {{ form_row(form.photoImage, {label: 'Photo de profile'})}}
+      {% else %}
+        {{ form_row(form.photoImage, {label: 'Photo de profile', attr:  {required: false}})}}
+      {% endif %}
+      {{ form_row(form.isMember)}}
+    {% if app.request.attributes.get('_route') == 'admin_contributor_update' %}
+      <img src="{{ '/uploads/img/contributor/' ~ contributor.photo }}" alt="{{contributor.photo}}" width="150">
+    {% endif %}
+      <button type="submit" name="button" class="btn btn-primary">sauver</button>
+  {{ form_end(form) }}
+{% endblock %}

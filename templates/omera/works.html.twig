@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %}Omera Digital works{% endblock %}
+{% block stylesheet %}
+  <style>
+  .grid{
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 20px;
+    }
+  </style>
+{% endblock %}
+{% block body %}
+  <div class="">
+    <h2 class="h2">
+      Our Mission is to Deliver Remarkable Experiences And Superior Results For Our Clients For Our Clients
+    </h2>
+    <div class="row">
+      {% for work in works %}
+          <div class="col-md-3 " style="margin-bottom: 5px">
+            <a href="{{ path('omera_work_show', {id: work.id}) }}">
+              <img src="uploads/img/project/{{ work.images.first.url }}" alt="" class="img-fluid" width="300px">
+            </a>
+          </div>
+      {% endfor %}
+    </div>
+    <p class="text-center"> <a href="{{ path('omera_works', {opt: 'all'})}}" class="btn btn-danger">SEE ALL WORK</a> </p>
+
+  </div>
+{% endblock %}

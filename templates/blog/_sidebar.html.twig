@@ -1,0 +1,25 @@
+<div class="">
+  <form class="" action="{{ path('blog_index', {q: search }) }}" method="get">
+    <input type="text" name="q" value="">
+  </form>
+  <div class="">
+    <h2>Lasted Post</h2>
+    {% for article in articles  %}
+        <div class="">
+          <h4> <a href="{{ path('blog_show', {id: article.id, slug: article.slug }) }}">{{ article.title }}</a> </h4>
+          <p>{{ article.createdAt|date('M d, Y') }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+    <h2>Post Categories</h2>
+    {% for category in categories %}
+        <div class="">
+          <p>
+            <a href="{{ path('blog_index', {category: category.name}) }}">
+                {{ category.name }}( {{ category.articles|length}} )
+            </a>
+          </p>
+        </div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminArticleController!{% endblock %}
+
+{% block body %}
+  {% include 'inc/_flash_info.html.twig' %}
+  {{ form_start(form) }}
+      {{ form_row(form.title, {label: 'Titre', attr:{placeholder: 'Titre'} }) }}
+      {{ form_row(form.content, {label: "Contenu de l'article", attr:{placeholder: 'Contenu'} }) }}
+      {{ form_row(form.authors, {label: 'Auteurs', attr:{placeholder: 'Le(s) auteur'} }) }}
+      {{ form_row(form.categories, {label: 'Categories', attr:{placeholder: 'Le(s) categories'} }) }}
+      {{ form_row(form.pictures, {label: "les images" }) }}
+
+      {% if app.request.attributes.get('_route') == 'admin_article_update' %}
+        <h2>Images</h2>
+        {% for picture in article.pictures %}
+            {% include 'admin_article/_pictures_list.html.twig' with {picture: picture} only %}
+        {% endfor %}
+      {% endif %}
+      <button type="submit" name="button" class="btn btn-primary">
+        sauver
+      </button>
+  {{ form_end(form) }}
+{% endblock %}

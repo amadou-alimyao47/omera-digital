@@ -1,0 +1,18 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Omera Digital: Edit Project{{ project.subject }}{% endblock %}
+
+{% block body %}
+  {{ form_start(form) }}
+      {{ form_row(form.customer) }}
+      {{ form_row(form.email) }}
+      {{ form_row(form.subject) }}
+      {{ form_row(form.budget) }}
+      {{ form_row(form.challenge) }}
+      {{ form_row(form.solution) }}
+      {{ form_row(form.status) }}
+      {{ form_row(form.satisfiedCustomer) }}
+      {{ form_row(form.categories) }}
+      <button type="submit" name="button" class="btn btn-primary">Editer</button>
+  {{ form_end(form) }}
+{% endblock %}
